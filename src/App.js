@@ -24,6 +24,7 @@ function App() {
       setCartItems([...cartItems, { ...product, qty: 1 , isDisable:false }]);
       console.log(product)
     }
+    
   };
   console.log(cartItems)
 
@@ -34,6 +35,7 @@ function App() {
     }else{
         setCartItems(cartItems.map(x => x.id === product.id ? {...exist, qty:exist.qty-1}:x))
     }
+  
 }
   
 
@@ -41,7 +43,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="grid">
-        <Main onAdd={onAdd} products={products} />
+        <Main onAdd={onAdd} products={products}  cartItems={cartItems}/>
         <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
       </div>
     </div>
